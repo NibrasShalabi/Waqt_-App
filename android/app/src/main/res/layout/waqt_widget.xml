@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@drawable/widget_background"
+    android:padding="16dp"
+    android:gravity="center">
+
+    <!-- المدينة -->
+    <TextView
+        android:id="@+id/widget_city"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="دمشق"
+        android:textColor="#888888"
+        android:textSize="12sp"
+        android:layout_gravity="end"/>
+
+    <!-- الصلاة القادمة -->
+    <TextView
+        android:id="@+id/widget_prayer_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="الفجر"
+        android:textColor="#C9A84C"
+        android:textSize="22sp"
+        android:textStyle="bold"
+        android:layout_gravity="center"/>
+
+    <!-- الوقت -->
+    <TextView
+        android:id="@+id/widget_prayer_time"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="4:30 ص"
+        android:textColor="#FFFFFF"
+        android:textSize="18sp"
+        android:layout_gravity="center"/>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="#333333"
+        android:layout_marginTop="8dp"
+        android:layout_marginBottom="8dp"/>
+
+    <!-- الذكر -->
+    <TextView
+        android:id="@+id/widget_dhikr"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="سبحان الله"
+        android:textColor="#DDDDDD"
+        android:textSize="14sp"
+        android:layout_gravity="center"
+        android:gravity="center"/>
+
+</LinearLayout>

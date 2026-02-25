@@ -1,0 +1,7 @@
+-keep class com.dexterous.** { *; }
+-keep class com.google.gson.** { *; }
+-keep class com.google.gson.stream.** { *; }
+-keepattributes *Annotation*
+-keepattributes Signature
+-keepattributes EnclosingMethod
+-keepattributes InnerClasses

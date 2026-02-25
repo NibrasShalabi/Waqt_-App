@@ -1,16 +1,91 @@
-# waqt
+# Waqt — وَقْت
 
-A new Flutter project.
+  A comprehensive Islamic app for prayer times & daily worship
 
-## Getting Started
 
-This project is a starting point for a Flutter application.
+---
 
-A few resources to get you started if this is your first Flutter project:
+## ✨ Features
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+### 🕌 Prayer Times
+- Accurate prayer time calculation based on selected city
+- Countdown timer to the next prayer
+- 100+ Arabic & international cities supported
+- Prayer time notifications
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+### 📋 Prayer Log
+- Daily prayer tracking
+- Daily commitment progress indicator
+
+### 📿 Worship
+- Customizable Tasbih counter
+- Quran reading progress tracker
+
+### 📖 Duas & Dhikr
+- Comprehensive library of duas and adhkar
+- Morning & evening dhikr with reminders
+- Daily Quran reading reminder
+
+### ⚙️ Settings
+- City selection from a full list
+- Full notification control
+- Do Not Disturb mode
+
+---
+
+## 🚀 Upcoming Features
+
+> This is the initial release — the following features will be added in upcoming updates
+
+- ⬜ Full Quran inside the app
+- ⬜ Audio recitation by famous Qaris
+- ⬜ Quran Tafsir (interpretation)
+- ⬜ Home screen widget
+- ⬜ UI improvements
+- ⬜ iOS support
+
+---
+
+## 🛠️ Requirements
+
+- Flutter 3.x or higher
+- Dart 3.x or higher
+- Android 5.0 (API 21) or higher
+
+---
+
+## 📦 Dependencies
+
+| Package | Description |
+|---------|-------------|
+| `flutter_bloc` | State management |
+| `adhan` | Prayer time calculation |
+| `hive` | Local database |
+| `flutter_local_notifications` | Notifications |
+| `shared_preferences` | Settings storage |
+| `flutter_screenutil` | Responsive UI |
+
+---
+
+## 🏗️ Project Structure
+
+```
+lib/
+├── core/
+│   ├── constants/       # Colors, dimensions, cities
+│   └── services/        # Notifications, widget
+├── data/
+│   ├── models/          # Hive models
+│   └── repositories/    # Data repositories
+├── features/
+│   ├── prayer/          # Prayer times
+│   ├── worship/         # Tasbih & Quran
+│   ├── duas/            # Duas & Adhkar
+│   └── settings/        # App settings
+└── shared/
+    └── widgets/         # Shared widgets
+```
+
+---
+Built with Flutter & ❤️
+Waqt v1.0.0 — 2025
