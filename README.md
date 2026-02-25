@@ -32,6 +32,15 @@
 - Do Not Disturb mode
 
 ---
+## 🔗 Try the App (Android APK)
+
+Download the latest release version:
+
+https://drive.google.com/file/d/1MQYQPZDweDc8TKZTa-KbZYOpwEjf_ClG/view?usp=drive_link
+
+> Note: Enable "Install unknown apps" on your Android device before installation.
+
+---
 
 ## 🚀 Upcoming Features
 
