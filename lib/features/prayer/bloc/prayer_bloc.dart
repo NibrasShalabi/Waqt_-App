@@ -33,16 +33,30 @@ class PrayerBloc extends Bloc<PrayerEvent, PrayerState> {
       final params      = CalculationMethod.muslim_world_league.getParameters();
       params.madhab     = Madhab.shafi;
       final prayerTimes = PrayerTimes.today(coords, params);
-      final nextPrayer  = prayerTimes.nextPrayer();
-      final nextTime    = prayerTimes.timeForPrayer(nextPrayer)!;
-      final today       = DateFormat('yyyy-MM-dd').format(DateTime.now());
-      final todayLog    = await _repo.getLog(today);
-      final weeklyLogs  = await _repo.getWeeklyLogs();
-      final percentage  = _repo.getWeeklyPercentage(weeklyLogs);
+
+      // حل مشكلة Prayer.none بعد العشاء
+      final nextPrayer = prayerTimes.nextPrayer();
+      final DateTime nextTime;
+      final Prayer   displayPrayer;
+
+      if (nextPrayer == Prayer.none) {
+        final tomorrow      = DateTime.now().add(const Duration(days: 1));
+        final tomorrowTimes = PrayerTimes(coords, DateComponents.from(tomorrow), params);
+        nextTime      = tomorrowTimes.fajr ?? DateTime.now().add(const Duration(hours: 8));
+        displayPrayer = Prayer.fajr;
+      } else {
+        nextTime      = prayerTimes.timeForPrayer(nextPrayer) ?? DateTime.now().add(const Duration(hours: 1));
+        displayPrayer = nextPrayer;
+      }
+
+      final today      = DateFormat('yyyy-MM-dd').format(DateTime.now());
+      final todayLog   = await _repo.getLog(today);
+      final weeklyLogs = await _repo.getWeeklyLogs();
+      final percentage = _repo.getWeeklyPercentage(weeklyLogs);
 
       emit(PrayerLoaded(
         prayerTimes:      prayerTimes,
-        nextPrayer:       nextPrayer,
+        nextPrayer:       displayPrayer,
         nextPrayerTime:   nextTime,
         todayLog:         todayLog,
         weeklyLogs:       weeklyLogs,
@@ -50,19 +64,26 @@ class PrayerBloc extends Bloc<PrayerEvent, PrayerState> {
         cityName:         cityName,
       ));
 
-      if (prefs.getBool('prayer_notif') ?? true) {
-        await NotificationService.schedulePrayerNotifications(prayerTimes);
+      try {
+        if (prefs.getBool('prayer_notif') ?? true) {
+          await NotificationService.schedulePrayerNotifications(prayerTimes);
+        }
+        await NotificationService.scheduleQuranReminder(prefs.getBool('quran_notif') ?? true);
+        await NotificationService.scheduleAzkarReminders(prefs.getBool('azkar_notif') ?? true);
+      } catch (e) {
+        print('Notification Error: $e');
       }
-      await NotificationService.scheduleQuranReminder(prefs.getBool('quran_notif') ?? true);
-      await NotificationService.scheduleAzkarReminders(prefs.getBool('azkar_notif') ?? true);
 
-      // تحديث الويدجت
-      await WidgetService.updateWidget(
-        prayerName: getPrayerName(nextPrayer),
-        prayerTime: _formatTime(nextTime),
-        cityName:   cityName,
-        dhikr:      WidgetService.getRandomDhikr(),
-      );
+      try {
+        await WidgetService.updateWidget(
+          prayerName: getPrayerName(displayPrayer),
+          prayerTime: _formatTime(nextTime),
+          cityName:   cityName,
+          dhikr:      WidgetService.getRandomDhikr(),
+        );
+      } catch (e) {
+        print('Widget Error: $e');
+      }
 
     } catch (e) {
       print('PrayerBloc Error: $e');
