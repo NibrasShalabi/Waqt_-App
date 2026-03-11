@@ -28,9 +28,10 @@ class SettingsService {
   }
 
 // Notifications
+  // القيمة الأفتراضية انو الأشعار شغال
   static bool get prayerNotif =>
       HiveService.settings.get(_prayerNotifKey, defaultValue: true);
-
+// حدد القيمة لي رح تجيك
   static Future<void> setPrayerNotif(bool value) =>
       HiveService.settings.put(_prayerNotifKey, value);
 
