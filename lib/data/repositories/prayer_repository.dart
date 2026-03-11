@@ -1,5 +1,5 @@
 import 'package:hive_flutter/hive_flutter.dart';
-import '../models/prayer_log_model.dart';
+import '../../features/prayer_times/data/prayer_log_model.dart';
 
 class PrayerRepository {
   static const String _boxName = 'prayer_log';
@@ -46,18 +46,20 @@ class PrayerRepository {
     return logs;
   }
 
+  Object? getWeeklyPercentage(List<PrayerLogModel> weeklyLogs) {}
+
   // حساب نسبة الالتزام الأسبوعي
-  double getWeeklyPercentage(List<PrayerLogModel> logs) {
-    if (logs.isEmpty) return 0;
-    int total  = logs.length * 5;
-    int prayed = logs.fold(0, (sum, log) {
-      return sum +
-          (log.fajr    ? 1 : 0) +
-          (log.dhuhr   ? 1 : 0) +
-          (log.asr     ? 1 : 0) +
-          (log.maghrib ? 1 : 0) +
-          (log.isha    ? 1 : 0);
-    });
-    return prayed / total;
-  }
-}
+//   double getWeeklyPercentage(List<PrayerLogModel> logs) {
+//     if (logs.isEmpty) return 0;
+//     int total  = logs.length * 5;
+//     int prayed = logs.fold(0, (sum, log) {
+//       return sum +
+//           (log.fajr    ? 1 : 0) +
+//           (log.dhuhr   ? 1 : 0) +
+//           (log.asr     ? 1 : 0) +
+//           (log.maghrib ? 1 : 0) +
+//           (log.isha    ? 1 : 0);
+//     });
+//     return prayed / total;
+//   }
+ }

@@ -50,14 +50,14 @@ class AppTheme {
       ),
     ),
 
-    cardTheme: CardTheme(
-      color:     AppColors.card,
-      elevation: 0,
-      shape: RoundedRectangleBorder(
-        borderRadius: BorderRadius.circular(AppDimensions.radiusL),
-        side: const BorderSide(color: AppColors.border, width: 1),
-      ),
-    ),
+    // cardTheme: CardTheme(
+    //   color:     AppColors.card,
+    //   elevation: 0,
+    //   shape: RoundedRectangleBorder(
+    //     borderRadius: BorderRadius.circular(AppDimensions.radiusL),
+    //     side: const BorderSide(color: AppColors.border, width: 1),
+    //   ),
+    // ),
 
     dividerTheme: const DividerThemeData(
       color:     AppColors.divider,

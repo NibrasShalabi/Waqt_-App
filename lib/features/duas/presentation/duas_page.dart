@@ -4,7 +4,7 @@ import 'package:waqt/features/duas/bloc/duas_bloc.dart';
 import '../../../core/constants/app_colors.dart';
 import '../../../core/constants/app_dimensions.dart';
 import '../../../core/constants/app_strings.dart';
-import '../../../data/models/dua_model.dart';
+import '../../adhkar/dua_model.dart';
 import '../bloc/duas_event.dart';
 import '../bloc/duas_state.dart';
 import 'widgets/dua_card.dart';

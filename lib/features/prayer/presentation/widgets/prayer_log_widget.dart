@@ -3,7 +3,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import '../../../../core/constants/app_colors.dart';
 import '../../../../core/constants/app_dimensions.dart';
 import '../../../../core/constants/app_strings.dart';
-import '../../../../data/models/prayer_log_model.dart';
+import '../../../prayer_times/data/prayer_log_model.dart';
 
 class PrayerLogWidget extends StatelessWidget {
   final PrayerLogModel log;

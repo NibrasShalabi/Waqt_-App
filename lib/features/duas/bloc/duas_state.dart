@@ -1,4 +1,5 @@
-import '../../../data/models/dua_model.dart';
+
+import '../../adhkar/dua_model.dart';
 
 abstract class DuasState {}
 

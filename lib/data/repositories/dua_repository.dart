@@ -1,5 +1,5 @@
 import 'package:hive_flutter/hive_flutter.dart';
-import '../models/dua_model.dart';
+import '../../features/adhkar/dua_model.dart';
 
 class DuaRepository {
   static const String _boxName  = 'duas';

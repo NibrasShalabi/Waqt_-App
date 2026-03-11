@@ -52,7 +52,7 @@ class PrayerBloc extends Bloc<PrayerEvent, PrayerState> {
       final today      = DateFormat('yyyy-MM-dd').format(DateTime.now());
       final todayLog   = await _repo.getLog(today);
       final weeklyLogs = await _repo.getWeeklyLogs();
-      final percentage = _repo.getWeeklyPercentage(weeklyLogs);
+      // final percentage = _repo.getWeeklyPercentage(weeklyLogs);
 
       emit(PrayerLoaded(
         prayerTimes:      prayerTimes,
@@ -60,19 +60,19 @@ class PrayerBloc extends Bloc<PrayerEvent, PrayerState> {
         nextPrayerTime:   nextTime,
         todayLog:         todayLog,
         weeklyLogs:       weeklyLogs,
-        weeklyPercentage: percentage,
+        // weeklyPercentage: percentage,
         cityName:         cityName,
       ));
 
-      try {
-        if (prefs.getBool('prayer_notif') ?? true) {
-          await NotificationService.schedulePrayerNotifications(prayerTimes);
-        }
-        await NotificationService.scheduleQuranReminder(prefs.getBool('quran_notif') ?? true);
-        await NotificationService.scheduleAzkarReminders(prefs.getBool('azkar_notif') ?? true);
-      } catch (e) {
-        print('Notification Error: $e');
-      }
+      // try {
+      //   if (prefs.getBool('prayer_notif') ?? true) {
+      //     await NotificationService.schedulePrayerNotifications(prayerTimes);
+      //   }
+      //   await NotificationService.scheduleQuranReminder(prefs.getBool('quran_notif') ?? true);
+      //   await NotificationService.scheduleAzkarReminders(prefs.getBool('azkar_notif') ?? true);
+      // } catch (e) {
+      //   print('Notification Error: $e');
+      // }
 
       try {
         await WidgetService.updateWidget(
@@ -114,7 +114,7 @@ class PrayerBloc extends Bloc<PrayerEvent, PrayerState> {
       nextPrayerTime:   current.nextPrayerTime,
       todayLog:         log,
       weeklyLogs:       weeklyLogs,
-      weeklyPercentage: percentage,
+      // weeklyPercentage: percentage,
       cityName:         current.cityName,
     ));
   }
@@ -131,7 +131,7 @@ class PrayerBloc extends Bloc<PrayerEvent, PrayerState> {
       nextPrayerTime:   current.nextPrayerTime,
       todayLog:         current.todayLog,
       weeklyLogs:       weeklyLogs,
-      weeklyPercentage: percentage,
+      // weeklyPercentage: percentage,
       cityName:         current.cityName,
     ));
   }

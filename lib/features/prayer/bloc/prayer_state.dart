@@ -1,5 +1,5 @@
 import 'package:adhan/adhan.dart';
-import '../../../data/models/prayer_log_model.dart';
+import '../../prayer_times/data/prayer_log_model.dart';
 
 abstract class PrayerState {}
 
@@ -16,7 +16,7 @@ class PrayerLoaded extends PrayerState {
   final DateTime            nextPrayerTime;
   final PrayerLogModel      todayLog;
   final List<PrayerLogModel> weeklyLogs;
-  final double              weeklyPercentage;
+  // final double              weeklyPercentage;
   final String              cityName;
 
   PrayerLoaded({
@@ -25,7 +25,7 @@ class PrayerLoaded extends PrayerState {
     required this.nextPrayerTime,
     required this.todayLog,
     required this.weeklyLogs,
-    required this.weeklyPercentage,
+    // required this.weeklyPercentage,
     required this.cityName,
   });
 }

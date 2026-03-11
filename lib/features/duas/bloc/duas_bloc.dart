@@ -1,6 +1,6 @@
 import 'package:flutter_bloc/flutter_bloc.dart';
-import '../../../data/models/dua_model.dart';
 import '../../../data/repositories/dua_repository.dart';
+import '../../adhkar/dua_model.dart';
 import 'duas_event.dart';
 import 'duas_state.dart';
 
